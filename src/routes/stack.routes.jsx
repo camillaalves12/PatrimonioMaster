@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import New from '../screens/New'
+import Feed from '../screens/Feed'
 
 const Stack = createNativeStackNavigator()
 
@@ -9,7 +9,7 @@ export default function StackRoutes() {
       <Stack.Navigator screenOptions={{headerShown: false}}>
          <Stack.Screen 
             name="novo" 
-            component={New} 
+            component={Feed} 
          />
       </Stack.Navigator>
    )

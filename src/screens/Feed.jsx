@@ -9,7 +9,7 @@ const styleInput = () =>  {
      }
  }
 
-export default  function Register()  {
+export default  function Feed()  {
    return(
      <View style={styles.div}>
      <Text style={styles.h1}>Cadastramento de Item</Text>

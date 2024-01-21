@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyleSheet, Text, View,TextInput, TouchableOpacity, SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import { StyleSheet, Text, View,TextInput, TouchableOpacity} from 'react-native';
 
 
 const styleInput = () =>  {

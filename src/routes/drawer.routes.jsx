@@ -22,6 +22,13 @@ export default function DrawerRoutes() {
             drawerLabel: 'Meu perfil'
             }} />
             
+         <Drawer.Screen 
+            name="filter" 
+            component={StackRoutes} options={{
+            drawerIcon: ({ color, size }) => <Feather name="user" color={color} size={size}/>,
+            drawerLabel: 'Filtrar por Secretaria'
+            }} />
+            
       </Drawer.Navigator>
    )
 }
