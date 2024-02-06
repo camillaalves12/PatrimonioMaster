@@ -2,25 +2,32 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Feather  } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native';
 
 export default  function Options({text, iconName, iconSize})  {
     return (
-      <View style={styles.div}>
-         {iconName && iconName.startsWith('feather:') ? ( // Verifica se o ícone é do Feather
-        <Feather name={iconName.split(':')[1]} size={iconSize} color='blue' style={styles.iconItem} />
-      ) : (
-        <MaterialIcons name={iconName} size={iconSize} color='blue' style={styles.iconItem} />
-      )}
-        <View style={styles.divItens} >
-          <Text style={styles.text}>{text}</Text>
-          <MaterialIcons name="arrow-forward-ios" size={20} color='#bebdbd'  style={styles.iconArrow}/>
+      <TouchableOpacity style={styles.touchable}>
+        <View style={styles.div}>
+          {iconName && iconName.startsWith('feather:') ? (
+            <Feather name={iconName.split(':')[1]} size={iconSize} color='blue' style={styles.iconItem} />
+          ) : (
+            <MaterialIcons name={iconName} size={iconSize} color='blue' style={styles.iconItem} />
+          )}
+          <View style={styles.divItens}>
+            <Text style={styles.text}>{text}</Text>
+            <MaterialIcons name="arrow-forward-ios" size={20} color='#bebdbd' style={styles.iconArrow} />
+          </View>
         </View>
-      </View>
+    </TouchableOpacity>
     )
 
 }
   
  const styles = StyleSheet.create({
+  touchable: {
+    width: '100%',
+    alignItems: 'center',
+  },
    div: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -42,6 +49,6 @@ export default  function Options({text, iconName, iconSize})  {
    text: {
       fontWeight: '600',
       marginLeft: -75
-   },
+   }
 
  });
