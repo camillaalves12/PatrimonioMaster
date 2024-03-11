@@ -47,7 +47,7 @@ export default function Search() {
             onChangeText={onChange}
             onBlur={onBlur}
             value={value}
-            placeholder='Patrimônio ou Número de Série'
+            placeholder='Patrimônio, número de série ou secretaria'
           />
         )}
       />
@@ -64,18 +64,17 @@ export default function Search() {
         onRequestClose={closeModal}
       >
         <Pressable style={styles.centeredView} onPress={closeModal}>
-        <View style={styles.modalView}>
-      {searchResults.length > 0 ? (
-        // Se houver resultados da busca, exibe os itens
-        searchResults.map((item, index) => (
-            <View key={index} style={styles.item}>
-              <Text style={styles.title}>Descrição: <Text style={styles.itemText}>{item.descricao}</Text> </Text>
-              <Text style={styles.title}>Número de série: <Text style={styles.itemText}>{item.numserie}</Text></Text>
-              <Text style={styles.title}>Patrimônio: <Text style={styles.itemText}>{item.patrimonio}</Text></Text>
-              <Text style={styles.title}>Secretaria: <Text style={styles.itemText}>{item.secretaria}</Text></Text>
-              <Text style={styles.title}>Setor: <Text style={styles.itemText}>{item.setor}</Text></Text>
-            </View>
-
+            <View style={styles.modalView}>
+          {searchResults.length > 0 ? (
+            // Se houver resultados da busca, exibe os itens
+            searchResults.map((item, index) => (
+                <View key={index} style={styles.item}>
+                  <Text style={styles.title}>Descrição: <Text style={styles.itemText}>{item.descricao}</Text> </Text>
+                  <Text style={styles.title}>Número de série: <Text style={styles.itemText}>{item.numserie}</Text></Text>
+                  <Text style={styles.title}>Patrimônio: <Text style={styles.itemText}>{item.patrimonio}</Text></Text>
+                  <Text style={styles.title}>Secretaria: <Text style={styles.itemText}>{item.secretaria}</Text></Text>
+                  <Text style={styles.title}>Setor: <Text style={styles.itemText}>{item.setor}</Text></Text>
+                </View>
         ))
       ) : (
         // Se nenhum item for encontrado, exibe a mensagem
@@ -100,20 +99,26 @@ const styles = StyleSheet.create({
     width: '80%',
     height: '7%',
     padding: 5,
-    fontSize: 18,
+    fontSize: 14,
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#000',
     color: '#000',
     marginTop: 5
   },
-
   title: {
     fontSize: 16,
     fontWeight: 'bold',
   },
+  
   itemText: {
     fontWeight: 'normal',
+  },
+
+  item: {
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc'
   },
 
   message: {

@@ -13,24 +13,24 @@ const db = mysql.createPool({
    database: "bdpatrimonio",  
 })
 
-app.post("/login", (req, res) => {
-   const { username, password } = req.body;
-   const SQL = "SELECT * FROM users WHERE username = ? AND password = ?";
-   db.query(SQL, [username, password], (err, result) => {
-       if (err) {
-           console.error("Erro ao executar consulta de login:", err);
-           res.status(500).send("Erro interno do servidor");
-       } else {
-           if (result.length > 0) {
-               // Login bem-sucedido
-               res.status(200).send("Login bem-sucedido");
-           } else {
-               // Credenciais inválidas
-               res.status(401).send("Credenciais inválidas");
-           }
-       }
-   });
-});
+// app.post("/login", (req, res) => {
+//    const { username, password } = req.body;
+//    const SQL = "SELECT * FROM users WHERE username = ? AND password = ?";
+//    db.query(SQL, [username, password], (err, result) => {
+//        if (err) {
+//            console.error("Erro ao executar consulta de login:", err);
+//            res.status(500).send("Erro interno do servidor");
+//        } else {
+//            if (result.length > 0) {
+//                // Login bem-sucedido
+//                res.status(200).send("Login bem-sucedido");
+//            } else {
+//                // Credenciais inválidas
+//                res.status(401).send("Credenciais inválidas");
+//            }
+//        }
+//    });
+// });
 
 app.get("/itens", (req, res) => {
    let SQL = "SELECT * from listaitens";
@@ -59,10 +59,10 @@ app.get("/buscar", (req, res) => {
    const { termo } = req.query;
    console.log("Termo de busca:", termo); // Adicionando um log para verificar o termo de busca
    
-   let SQL = "SELECT * FROM listaitens WHERE patrimonio = ? OR numserie = ?";
+   let SQL = "SELECT * FROM listaitens WHERE patrimonio = ? OR numserie = ? OR secretaria = ?";
    console.log("Consulta SQL:", SQL); // Adicionando um log para verificar a consulta SQL
    
-   db.query(SQL, [termo, termo], (err, result) => {
+   db.query(SQL, [termo, termo, termo], (err, result) => {
       if(err) {
          console.error("Erro ao buscar item:", err);
          res.status(500).json({ error: "Erro ao buscar item" });

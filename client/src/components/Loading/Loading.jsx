@@ -1,8 +1,8 @@
 import React,{ useState, useEffect } from 'react';
 import { View, StyleSheet, FlatList, Text, Button, TouchableOpacity} from 'react-native';
-import Axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
+import Axios from 'axios';
 import EditItemScreen from '../../screens/EditItemScreen';
 
   const Item = ({descricao, numserie, patrimonio, secretaria, setor, id,  onDelete, onEdit}) => (
@@ -46,16 +46,18 @@ import EditItemScreen from '../../screens/EditItemScreen';
     useEffect(() => {
       Axios.get("http://192.168.101.105:3002/itens").then(
         (response) => {
-          setLista(response.data)
+          // Ordenando os itens em ordem decrescente pelo ID
+          const sortedItems = response.data.sort((a, b) => b.id - a.id);
+          setLista(sortedItems);
         }
       )
-    }, [lista])
+    }, [lista]);
 
     
-  const deletarItem = (id) => {
-    Axios.delete(`http://192.168.101.105:3002/item/${id}`
-    );
-  }
+    const deletarItem = (id) => {
+      Axios.delete(`http://192.168.101.105:3002/item/${id}`
+      );
+    }
    return (
     <View style={styles.container}>
         <FlatList
@@ -92,7 +94,6 @@ const styles = StyleSheet.create({
       paddingVertical: 16,
       backgroundColor: '#cacsa',
       marginTop:  0,
-
    },
     item: {
       backgroundColor: '#d2d0d0',
@@ -100,7 +101,6 @@ const styles = StyleSheet.create({
       marginVertical: 8,
       marginHorizontal: 16,
       borderRadius: 10
-
     },
     title: {
       fontSize: 16,
@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
     },
     itemText: {
       fontWeight: 'normal',
-
     },
     divOptions: {
       flexDirection: 'row',
@@ -122,7 +121,6 @@ const styles = StyleSheet.create({
       borderLeftColor: '#cdcdcd',
       borderBottomColor: '#cdcdcd',
     },
-
     divOptionsItens: {
       flexDirection: 'row',
       justifyContent: 'center',
@@ -130,11 +128,9 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       alignItems: 'center',
       marginTop: 5,
-      
     },
     firstItem: {
       borderRightWidth: 1,
       borderColor: '#838282',
     }
-
   });

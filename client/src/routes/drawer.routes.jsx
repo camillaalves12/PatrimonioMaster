@@ -16,6 +16,7 @@ export default function DrawerRoutes() {
             options={{
                drawerIcon: ({ color, size }) => <Feather name="home" color={color} size={size}/>,
                drawerLabel: 'Início'
+               
             }}
          />
          <Drawer.Screen
