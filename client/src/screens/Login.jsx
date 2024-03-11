@@ -78,3 +78,76 @@ const styles = StyleSheet.create({
         color: 'white',
     },
 });
+
+// import React from 'react';
+// import { StyleSheet, Text, View,TextInput, TouchableOpacity} from 'react-native';
+
+
+// export default function Login() {
+//    return(
+//       <View style={styles.div}>
+//         <Text style={styles.title}>Patrimônio Master</Text>
+  
+//         <View style={styles.divInputs}>
+//           <View style={styles.inputs}>
+//             <Text style={styles.textInput}>Login:</Text>
+//             <TextInput style={styles.input}/>
+//           </View>
+//           <View style={styles.inputs}>
+//             <Text style={styles.textInput}>Senha:</Text>
+//             <TextInput style={styles.input}/>
+//           </View>
+//             <TouchableOpacity style={styles.button} activeOpacity={0.7}  >
+//               <Text style={styles.textButton}>Entrar</Text>
+//             </TouchableOpacity>
+//             <Text style={{textAlign:'center', color:'#385898' }}>Esqueceu a senha?</Text>
+//         </View>
+//     </View>
+//     )
+// }
+
+// const styles = StyleSheet.create({
+
+//    div: {
+//     flex: 1,
+//      justifyContent: 'center', 
+//      alignItems: 'center',
+//    },
+//    title: {
+//      textAlign: 'center',
+//      fontSize: 16,
+//      bottom: 32
+//    },
+//    divInputs: {
+//      display: 'flex',
+//      gap: 10
+//    },
+//    inputs: {
+//      display:'flex',
+//      gap: 8,
+//      width: 100
+//    },
+//    input: {
+//      border: '1px solid #000',
+//      height: 20,
+//      borderRadius: 8,
+//      fontSize: 12,
+//    },
+//    textInput: {
+//      fontSize: 12
+//    },
+//    button: {
+//      backgroundColor: '#1877F2',
+//      alignItems: 'center',
+//      padding: 8,
+//      borderRadius: 8,
+//      color: '#fff',
+//      marginTop: 8
+//    },
+//    textButton: {
+//       color: '#fff',
+//       fontSize: 10,
+//       fontWeight: 'bold'
+//     },
+//  });
+ 

@@ -54,14 +54,14 @@ export function ProfileStackRoutes() {
           headerBackVisible: true
         }}
       />
-      <ProfileStack.Screen
+      {/* <ProfileStack.Screen
         name="EditItemScreen"
         component={EditItemScreen}
         options={{
           headerTitle: 'Editar Item',
           headerBackVisible: true
         }}
-      />
+      /> */}
     </ProfileStack.Navigator>
   );
 }
