@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "patrimonioMaster",
+    "slug": "patrimonioMaster",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.yourappname",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Permissão para acessar a câmera",
+        "NSPhotoLibraryUsageDescription": "Permissão para acessar a biblioteca de fotos",
+        "NSPhotoLibraryAddUsageDescription": "Permissão para adicionar fotos à biblioteca"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    }
+  }
+}
