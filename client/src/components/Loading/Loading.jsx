@@ -13,16 +13,16 @@ import EditItemScreen from '../../screens/EditItemScreen';
       <Text style={styles.title}>Secretaria: <Text style={styles.itemText}>{secretaria}</Text></Text>
       <Text style={styles.title}>Setor: <Text style={styles.itemText}>{setor}</Text></Text>
       <View >
-        <View style={[styles.divOptions, styles.firstItem]}>
-            <TouchableOpacity onPress={() => onDelete(id)} style={[styles.divOptionsItens, styles.firstItem]} >
+        <View style={styles.divOptions}>
+            <TouchableOpacity onPress={() => onDelete(id)} style={styles.divOptionsItens}>
               <MaterialIcons name='delete' size={24} style={{marginRight: 5}} />
               <Text >Apagar</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => onEdit(id)} style={styles.divOptionsItens}>
+            {/* <TouchableOpacity onPress={() => onEdit(id)} style={styles.divOptionsItens}>
               <MaterialIcons name='edit' size={24} style={{marginRight: 5}}/>
               <Text>Editar</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
       </View>
 
@@ -40,11 +40,11 @@ import EditItemScreen from '../../screens/EditItemScreen';
 
     // const handleEditPress = ({item}) => {
     //   navigation.navigate('EditItemScreen', {item: item});
-    //   Axios.put(`http://192.168.101.160:3002/item/${id}`)
+    //   Axios.put(`http://192.168.101.105:3002/item/${id}`)
     // };
 
     useEffect(() => {
-      Axios.get("http://192.168.101.160:3002/itens").then(
+      Axios.get("http://192.168.101.105:3002/itens").then(
         (response) => {
           setLista(response.data)
         }
@@ -53,7 +53,7 @@ import EditItemScreen from '../../screens/EditItemScreen';
 
     
   const deletarItem = (id) => {
-    Axios.delete(`http://192.168.101.160:3002/item/${id}`
+    Axios.delete(`http://192.168.101.105:3002/item/${id}`
     );
   }
    return (
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
       color: '#000',
       marginTop: 15,
       textAlign: 'center',
+      justifyContent: 'center',
       borderWidth: 1,
       borderTopColor: '#838282',
       borderRightColor: '#cdcdcd',
@@ -123,7 +124,6 @@ const styles = StyleSheet.create({
     },
 
     divOptionsItens: {
-      width: "50%",
       flexDirection: 'row',
       justifyContent: 'center',
       alignContent: 'center',
